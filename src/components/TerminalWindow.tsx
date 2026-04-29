@@ -38,7 +38,7 @@ export default function TerminalWindow({ title, children }: TerminalWindowProps)
 
           {/* Terminal body */}
           <div
-            className="scan-lines px-5 py-5 md:px-10 md:py-8"
+            className="scan-lines px-8 py-8 md:px-16 md:py-12"
             style={{ background: "var(--terminal-bg)" }}
           >
             <div className="relative z-[2]">{children}</div>
