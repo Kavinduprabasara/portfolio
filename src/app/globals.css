@@ -1,26 +1,123 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --terminal-bg: #1e1e1e;
+  --terminal-darker: #0d0d0d;
+  --terminal-lighter: #2d2d2d;
+  --terminal-green: #00ff41;
+  --terminal-green-dim: #33ff66;
+  --terminal-cyan: #6be4e0;
+  --terminal-amber: #ffb86c;
+  --terminal-white: #e5e5e5;
+  --terminal-gray: #8b8b8b;
+  --window-chrome: #2b2b2b;
+  --glow-green: rgba(0, 255, 65, 0.3);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-mono: var(--font-jetbrains-mono);
+  --color-t-bg: var(--terminal-bg);
+  --color-t-darker: var(--terminal-darker);
+  --color-t-lighter: var(--terminal-lighter);
+  --color-t-green: var(--terminal-green);
+  --color-t-green-dim: var(--terminal-green-dim);
+  --color-t-cyan: var(--terminal-cyan);
+  --color-t-amber: var(--terminal-amber);
+  --color-t-white: var(--terminal-white);
+  --color-t-gray: var(--terminal-gray);
+  --color-t-chrome: var(--window-chrome);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
   }
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "JetBrains Mono", "SF Mono", "Menlo", "Monaco", "Courier New",
+    monospace;
+  background: var(--terminal-darker);
+  color: var(--terminal-white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Scan-line overlay — applied via .scan-lines class on the terminal body */
+.scan-lines {
+  position: relative;
+}
+
+.scan-lines::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Blinking cursor */
+.cursor-blink {
+  display: inline-block;
+  width: 10px;
+  height: 20px;
+  background: var(--terminal-green);
+  margin-left: 4px;
+  animation: blink 1s infinite;
+  vertical-align: middle;
+}
+
+/* Section fade-in animation */
+.section-visible {
+  animation: fadeInUp 0.3s ease-in-out;
+}
+
+/* Glow text effect */
+.text-glow-green {
+  text-shadow: 0 0 10px var(--glow-green);
+}
+
+.text-glow-green-lg {
+  text-shadow: 0 0 20px var(--glow-green);
+}
+
+/* Nav link active state */
+.nav-link-active {
+  color: var(--terminal-green) !important;
+  background: rgba(0, 255, 65, 0.1);
+  text-shadow: 0 0 10px var(--glow-green);
+  border-bottom: 1px solid var(--terminal-green);
 }
