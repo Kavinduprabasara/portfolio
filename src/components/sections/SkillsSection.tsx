@@ -44,7 +44,7 @@ export default function SkillsSection() {
     <section className="mb-16">
       <CommandLine command="ls -la skills/" />
 
-      <div className="space-y-8">
+      <div className="space-y-12">
         {SKILL_GROUPS.map((group) => (
           <div key={group.label}>
             {/* Category header */}

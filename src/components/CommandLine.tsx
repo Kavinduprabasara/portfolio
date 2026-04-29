@@ -5,7 +5,7 @@ interface CommandLineProps {
 export default function CommandLine({ command }: CommandLineProps) {
   return (
     <div
-      className="flex items-center gap-3 mb-7 pb-3"
+      className="flex items-center gap-3 mb-10 pb-4"
       style={{ borderBottom: "1px dashed rgba(0,255,65,0.14)" }}
     >
       <span

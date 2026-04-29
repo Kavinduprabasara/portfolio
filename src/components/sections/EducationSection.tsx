@@ -31,7 +31,7 @@ export default function EducationSection() {
           style={{ background: "rgba(255,255,255,0.08)" }}
         />
 
-        <div className="space-y-6">
+        <div className="space-y-10">
           {EDUCATION.map((item) => (
             <div key={item.institution} className="relative pl-10">
               {/* Timeline dot */}

@@ -24,7 +24,7 @@ export default function HomeSection() {
       <div className="pl-1">
         {/* Name */}
         <h1
-          className="font-bold mb-4 text-glow-green-lg tracking-tight"
+          className="font-bold mb-6 text-glow-green-lg tracking-tight"
           style={{
             color: "var(--terminal-green)",
             fontSize: "clamp(28px, 5vw, 52px)",
@@ -37,7 +37,7 @@ export default function HomeSection() {
 
         {/* Typed role */}
         <div
-          className="font-semibold mb-8"
+          className="font-semibold mb-10"
           style={{
             fontSize: "clamp(18px, 3vw, 28px)",
             color: "var(--terminal-cyan)",
@@ -49,7 +49,7 @@ export default function HomeSection() {
 
         {/* Short intro */}
         <p
-          className="max-w-[680px] mb-6"
+          className="max-w-[680px] mb-10"
           style={{
             color: "var(--terminal-white)",
             fontSize: "14px",
@@ -63,7 +63,7 @@ export default function HomeSection() {
         </p>
 
         {/* Highlights list */}
-        <ul className="mb-10 space-y-2">
+        <ul className="mb-12 space-y-4">
           {HIGHLIGHTS.map((h) => (
             <li
               key={h}

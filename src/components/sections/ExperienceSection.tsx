@@ -37,7 +37,7 @@ export default function ExperienceSection() {
           style={{ background: "rgba(255,255,255,0.08)" }}
         />
 
-        <div className="space-y-6">
+        <div className="space-y-10">
           {EXPERIENCE.map((item) => (
             <div key={item.title} className="relative pl-10">
               {/* Timeline dot */}
