@@ -10,7 +10,7 @@ export default function TerminalWindow({ title, children }: TerminalWindowProps)
       className="min-h-screen flex flex-col items-center"
       style={{
         background: "var(--terminal-darker)",
-        padding: "2rem 1rem",
+        padding: "5rem 4rem",
       }}
     >
       {/* Terminal window — capped at 1200px so side margins always show */}
