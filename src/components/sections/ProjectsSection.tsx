@@ -13,15 +13,18 @@ export default function ProjectsSection() {
   return (
     <section className="mb-16">
       <CommandLine command="cat projects/*" />
-      <div>
-        {projectsData.map((project) => (
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {projectsData.map((project, i) => (
           <ProjectCard
             key={project.title}
             project={project}
+            index={i}
             onClick={() => setSelected(project)}
           />
         ))}
       </div>
+
       <ProjectModal project={selected} onClose={() => setSelected(null)} />
     </section>
   );

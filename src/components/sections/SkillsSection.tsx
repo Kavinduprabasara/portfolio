@@ -1,49 +1,99 @@
 import CommandLine from "@/components/CommandLine";
 
-const SKILLS = [
-  "C#", "Unity", "Next.js", "NestJS", "Prisma", "Tailwind CSS",
-  "TypeScript", "Kotlin", "Java", "Git", "Flutter", "Dart",
-  "Bash", "Bootstrap", "C", "CSS", "Docker", "Express",
-  "Figma", "Firebase", "Google Cloud", "GitHub", "HTML", "IntelliJ IDEA",
-  "JavaScript", "Linux", "Material UI", "MongoDB", "MySQL", "Node.js",
-  "Postman", "Python", "React", "Blender",
+const SKILL_GROUPS = [
+  {
+    label: "Languages",
+    color: "var(--terminal-green)",
+    bg: "rgba(0,255,65,0.06)",
+    border: "rgba(0,255,65,0.2)",
+    hoverBg: "rgba(0,255,65,0.12)",
+    hoverBorder: "rgba(0,255,65,0.5)",
+    skills: ["TypeScript", "JavaScript", "Java", "Python", "C#", "Kotlin", "Dart", "C", "Bash"],
+  },
+  {
+    label: "Frameworks & Libraries",
+    color: "var(--terminal-cyan)",
+    bg: "rgba(107,228,224,0.06)",
+    border: "rgba(107,228,224,0.2)",
+    hoverBg: "rgba(107,228,224,0.12)",
+    hoverBorder: "rgba(107,228,224,0.5)",
+    skills: ["Next.js", "React", "NestJS", "Flutter", "Express", "Unity", "Tailwind CSS", "Bootstrap", "Material UI"],
+  },
+  {
+    label: "Databases & Backend",
+    color: "var(--terminal-amber)",
+    bg: "rgba(255,184,108,0.06)",
+    border: "rgba(255,184,108,0.2)",
+    hoverBg: "rgba(255,184,108,0.12)",
+    hoverBorder: "rgba(255,184,108,0.5)",
+    skills: ["MySQL", "MongoDB", "Firebase", "Prisma", "Docker", "Node.js", "Kafka"],
+  },
+  {
+    label: "Tools & Platforms",
+    color: "#a78bfa",
+    bg: "rgba(167,139,250,0.06)",
+    border: "rgba(167,139,250,0.2)",
+    hoverBg: "rgba(167,139,250,0.12)",
+    hoverBorder: "rgba(167,139,250,0.5)",
+    skills: ["Git", "GitHub", "Figma", "Postman", "Linux", "IntelliJ IDEA", "Google Cloud", "Blender"],
+  },
 ];
 
 export default function SkillsSection() {
   return (
     <section className="mb-16">
       <CommandLine command="ls -la skills/" />
-      <div
-        className="grid gap-2.5"
-        style={{ gridTemplateColumns: "repeat(auto-fill, minmax(130px, 1fr))" }}
-      >
-        {SKILLS.map((skill) => (
-          <div
-            key={skill}
-            className="text-center px-4 py-3 rounded cursor-default transition-all duration-300 hover:-translate-y-0.5"
-            style={{
-              fontSize: "12.5px",
-              letterSpacing: "0.04em",
-              color: "var(--terminal-green-dim)",
-              background: "rgba(0,255,65,0.04)",
-              border: "1px solid rgba(0,255,65,0.18)",
-            }}
-            onMouseEnter={(e) => {
-              const el = e.currentTarget;
-              el.style.background = "rgba(0,255,65,0.1)";
-              el.style.borderColor = "var(--terminal-green)";
-              el.style.boxShadow = "0 0 14px rgba(0,255,65,0.25)";
-              el.style.color = "var(--terminal-green)";
-            }}
-            onMouseLeave={(e) => {
-              const el = e.currentTarget;
-              el.style.background = "rgba(0,255,65,0.04)";
-              el.style.borderColor = "rgba(0,255,65,0.18)";
-              el.style.boxShadow = "none";
-              el.style.color = "var(--terminal-green-dim)";
-            }}
-          >
-            {skill}
+
+      <div className="space-y-8">
+        {SKILL_GROUPS.map((group) => (
+          <div key={group.label}>
+            {/* Category header */}
+            <div
+              className="flex items-center gap-3 mb-3"
+            >
+              <span
+                className="text-[10px] font-semibold tracking-widest uppercase"
+                style={{ color: group.color }}
+              >
+                {group.label}
+              </span>
+              <div
+                className="flex-1 h-px"
+                style={{ background: group.border }}
+              />
+            </div>
+
+            {/* Skill chips */}
+            <div className="flex flex-wrap gap-2">
+              {group.skills.map((skill) => (
+                <span
+                  key={skill}
+                  className="px-3 py-1.5 rounded text-[12px] cursor-default transition-all duration-200"
+                  style={{
+                    color: group.color,
+                    background: group.bg,
+                    border: `1px solid ${group.border}`,
+                    letterSpacing: "0.03em",
+                  }}
+                  onMouseEnter={(e) => {
+                    const el = e.currentTarget;
+                    el.style.background = group.hoverBg;
+                    el.style.borderColor = group.hoverBorder;
+                    el.style.transform = "translateY(-1px)";
+                    el.style.boxShadow = `0 4px 12px ${group.bg}`;
+                  }}
+                  onMouseLeave={(e) => {
+                    const el = e.currentTarget;
+                    el.style.background = group.bg;
+                    el.style.borderColor = group.border;
+                    el.style.transform = "translateY(0)";
+                    el.style.boxShadow = "none";
+                  }}
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
           </div>
         ))}
       </div>
