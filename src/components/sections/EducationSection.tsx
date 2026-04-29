@@ -1,36 +1,31 @@
+import CommandLine from "@/components/CommandLine";
+
 const EDUCATION = [
   {
     institution: "University of Moratuwa",
-    period: "Jun 2022 - Jun 2026",
+    period: "Jun 2022 – Jun 2026",
     degree: "Bachelor of Science Honours in Information Technology",
     details: "Information Technology",
     grade: "CGPA: 3.6",
   },
   {
     institution: "Rahula College",
-    period: "Jul 2017 - Nov 2020",
+    period: "Jul 2017 – Nov 2020",
     degree: "Advanced Level studies",
     details: "Physical Science stream",
-    grade: "Combined Mathematics (A), Chemistry (A), Physics (B)",
+    grade: "Combined Mathematics (A) · Chemistry (A) · Physics (B)",
   },
 ];
 
 export default function EducationSection() {
   return (
-    <section className="section-visible mb-14">
-      <div className="flex items-start gap-3 mb-5">
-        <span className="font-semibold shrink-0" style={{ color: "var(--terminal-cyan)" }}>
-          kavindu@portfolio:~$
-        </span>
-        <span className="font-medium" style={{ color: "var(--terminal-green)" }}>
-          cat education.txt
-        </span>
-      </div>
+    <section className="mb-16">
+      <CommandLine command="cat education.txt" />
       <div>
         {EDUCATION.map((item) => (
           <div
             key={item.institution}
-            className="px-5 py-5 mb-6 rounded transition-all duration-300"
+            className="px-6 py-6 mb-5 rounded transition-all duration-300"
             style={{
               background: "rgba(255,255,255,0.02)",
               borderLeft: "3px solid var(--terminal-cyan)",
@@ -39,7 +34,7 @@ export default function EducationSection() {
               const el = e.currentTarget;
               el.style.background = "rgba(255,255,255,0.04)";
               el.style.borderLeftColor = "var(--terminal-green)";
-              el.style.boxShadow = "0 4px 20px rgba(107,228,224,0.1)";
+              el.style.boxShadow = "0 4px 24px rgba(107,228,224,0.08)";
             }}
             onMouseLeave={(e) => {
               const el = e.currentTarget;
@@ -48,32 +43,41 @@ export default function EducationSection() {
               el.style.boxShadow = "none";
             }}
           >
-            <h3
-              className="text-lg font-semibold mb-1"
-              style={{ color: "var(--terminal-green)" }}
-            >
-              {item.institution}
-            </h3>
-            <div
-              className="text-sm font-medium mb-2"
-              style={{ color: "var(--terminal-cyan)" }}
-            >
-              {item.period}
+            <div className="flex flex-wrap items-start justify-between gap-2 mb-1">
+              <h3
+                className="font-semibold tracking-wide"
+                style={{ fontSize: "16px", color: "var(--terminal-green)" }}
+              >
+                {item.institution}
+              </h3>
+              <span
+                className="text-[11px]"
+                style={{ color: "var(--terminal-gray)", letterSpacing: "0.04em" }}
+              >
+                {item.period}
+              </span>
             </div>
+
             <div
-              className="text-[15px] font-medium mb-2"
-              style={{ color: "var(--terminal-white)" }}
+              className="font-medium mb-3"
+              style={{ fontSize: "14px", color: "var(--terminal-white)", lineHeight: 1.4 }}
             >
               {item.degree}
             </div>
-            <div className="text-[13px] leading-[1.7]" style={{ color: "var(--terminal-gray)" }}>
+
+            <div
+              className="mb-3"
+              style={{ color: "var(--terminal-gray)", fontSize: "13px", lineHeight: "1.7" }}
+            >
               {item.details}
             </div>
+
             <span
-              className="inline-block mt-2 text-xs px-2 py-0.5 rounded-xl"
+              className="inline-block text-[11px] px-3 py-1 rounded-full tracking-wide"
               style={{
                 color: "var(--terminal-amber)",
                 background: "rgba(255,184,108,0.1)",
+                border: "1px solid rgba(255,184,108,0.2)",
               }}
             >
               {item.grade}

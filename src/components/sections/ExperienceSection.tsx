@@ -1,8 +1,11 @@
+import CommandLine from "@/components/CommandLine";
+
 const EXPERIENCE = [
   {
     title: "Associate Software Engineer",
     type: "Part-time",
-    company: "4Axis · Oct 2025 - Present (4 mos)",
+    company: "4Axis",
+    period: "Oct 2025 – Present · 4 mos",
     description:
       "Working on iOS Swift applications, specifically the implementation and maintenance of the DrawKids iOS application.",
     stack: ["iOS", "Swift", "Mobile Development"],
@@ -10,7 +13,8 @@ const EXPERIENCE = [
   {
     title: "Software Engineer Intern",
     type: "Internship",
-    company: "4Axis · Feb 2025 - Sep 2025 (8 mos)",
+    company: "4Axis",
+    period: "Feb 2025 – Sep 2025 · 8 mos",
     description:
       "Worked on Virtual Reality (VR) applications using Unity and C#. Contributed to immersive experience development and core functionality implementation.",
     stack: ["Unity", "C#", "VR", "Virtual Reality"],
@@ -19,20 +23,13 @@ const EXPERIENCE = [
 
 export default function ExperienceSection() {
   return (
-    <section className="section-visible mb-14">
-      <div className="flex items-start gap-3 mb-5">
-        <span className="font-semibold shrink-0" style={{ color: "var(--terminal-cyan)" }}>
-          kavindu@portfolio:~$
-        </span>
-        <span className="font-medium" style={{ color: "var(--terminal-green)" }}>
-          cat work_experience.log
-        </span>
-      </div>
+    <section className="mb-16">
+      <CommandLine command="cat work_experience.log" />
       <div>
         {EXPERIENCE.map((item) => (
           <div
             key={item.title}
-            className="px-5 py-5 mb-6 rounded transition-all duration-300 group"
+            className="px-6 py-6 mb-5 rounded transition-all duration-300"
             style={{
               background: "rgba(255,255,255,0.02)",
               borderLeft: "3px solid var(--terminal-amber)",
@@ -41,7 +38,7 @@ export default function ExperienceSection() {
               const el = e.currentTarget;
               el.style.background = "rgba(255,255,255,0.04)";
               el.style.borderLeftColor = "var(--terminal-green)";
-              el.style.boxShadow = "0 4px 20px rgba(0,255,65,0.1)";
+              el.style.boxShadow = "0 4px 24px rgba(0,255,65,0.08)";
             }}
             onMouseLeave={(e) => {
               const el = e.currentTarget;
@@ -50,38 +47,59 @@ export default function ExperienceSection() {
               el.style.boxShadow = "none";
             }}
           >
-            <h3
-              className="text-lg font-semibold mb-1 flex justify-between items-center flex-wrap gap-2"
-              style={{ color: "var(--terminal-green)" }}
-            >
-              {item.title}
+            <div className="flex flex-wrap items-start justify-between gap-2 mb-1">
+              <h3
+                className="font-semibold tracking-wide"
+                style={{ fontSize: "16px", color: "var(--terminal-green)" }}
+              >
+                {item.title}
+              </h3>
               <span
-                className="text-[11px] font-normal px-2 py-0.5 rounded-[10px]"
+                className="text-[11px] font-medium px-2.5 py-0.5 rounded-full"
                 style={{
-                  background: "rgba(255,255,255,0.1)",
+                  background: "rgba(255,255,255,0.08)",
                   color: "var(--terminal-white)",
+                  letterSpacing: "0.05em",
                 }}
               >
                 {item.type}
               </span>
-            </h3>
-            <div
-              className="text-sm font-medium mb-3"
-              style={{ color: "var(--terminal-cyan)" }}
-            >
-              {item.company}
             </div>
-            <p className="text-[13px] leading-[1.7] mb-3" style={{ color: "var(--terminal-gray)" }}>
+
+            <div className="flex flex-wrap gap-2 items-center mb-4">
+              <span
+                className="font-semibold text-[13px]"
+                style={{ color: "var(--terminal-cyan)" }}
+              >
+                {item.company}
+              </span>
+              <span style={{ color: "var(--terminal-gray)", fontSize: "12px" }}>·</span>
+              <span style={{ color: "var(--terminal-gray)", fontSize: "12px" }}>
+                {item.period}
+              </span>
+            </div>
+
+            <p
+              className="mb-4"
+              style={{
+                color: "var(--terminal-gray)",
+                fontSize: "13px",
+                lineHeight: "1.8",
+                letterSpacing: "0.01em",
+              }}
+            >
               {item.description}
             </p>
+
             <div className="flex flex-wrap gap-2">
               {item.stack.map((tag) => (
                 <span
                   key={tag}
-                  className="text-[11px] px-1.5 py-0.5 rounded-sm"
+                  className="text-[11px] px-2 py-0.5 rounded-sm tracking-wide"
                   style={{
                     color: "var(--terminal-green-dim)",
-                    background: "rgba(0,255,65,0.1)",
+                    background: "rgba(0,255,65,0.08)",
+                    border: "1px solid rgba(0,255,65,0.15)",
                   }}
                 >
                   {tag}
