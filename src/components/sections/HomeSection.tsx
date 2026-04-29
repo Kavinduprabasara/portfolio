@@ -11,7 +11,7 @@ export default function HomeSection() {
       <div className="pl-1">
         {/* Name */}
         <h1
-          className="font-bold mb-6 text-glow-green-lg tracking-tight"
+          className="font-bold mb-8 text-glow-green-lg tracking-tight"
           style={{
             color: "var(--terminal-green)",
             fontSize: "clamp(28px, 5vw, 52px)",
@@ -24,7 +24,7 @@ export default function HomeSection() {
 
         {/* Typed role */}
         <div
-          className="font-semibold mb-10"
+          className="font-semibold mb-14"
           style={{
             fontSize: "clamp(18px, 3vw, 28px)",
             color: "var(--terminal-cyan)",

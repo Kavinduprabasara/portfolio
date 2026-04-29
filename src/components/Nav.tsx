@@ -35,7 +35,7 @@ export default function Nav({ active, onNavigate }: NavProps) {
 
   return (
     <nav
-      className="mb-10 pb-5"
+      className="mb-16 pb-6"
       style={{ borderBottom: "1px solid rgba(255,255,255,0.1)" }}
     >
       <div className="flex items-center justify-between">
