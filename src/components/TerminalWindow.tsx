@@ -5,15 +5,19 @@ interface TerminalWindowProps {
 
 export default function TerminalWindow({ title, children }: TerminalWindowProps) {
   return (
-    /* Full-viewport dark background — gives the "floating window" feel */
+    /* Full-viewport dark background — flex centres the window horizontally */
     <div
-      className="min-h-screen px-4 py-8 md:px-8 md:py-12"
-      style={{ background: "var(--terminal-darker)" }}
+      className="min-h-screen flex flex-col items-center"
+      style={{
+        background: "var(--terminal-darker)",
+        padding: "2rem 1rem",
+      }}
     >
-      {/* Terminal window — centred, capped at 1200px so side margins always show */}
+      {/* Terminal window — capped at 1200px so side margins always show */}
       <div
-        className="max-w-[1200px] mx-auto rounded-[10px] overflow-hidden"
+        className="w-full rounded-[10px] overflow-hidden"
         style={{
+          maxWidth: "1200px",
           background: "var(--terminal-bg)",
           boxShadow: "0 20px 60px rgba(0,0,0,0.5)",
         }}
