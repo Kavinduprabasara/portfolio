@@ -35,17 +35,6 @@
   50%, 100% { opacity: 0; }
 }
 
-/* Window border glow pulse */
-@keyframes borderGlowPulse {
-  0%, 100% { opacity: 0.55; }
-  50%       { opacity: 1; }
-}
-
-/* Outer soft glow behind window */
-@keyframes outerGlowPulse {
-  0%, 100% { opacity: 0.3; }
-  50%       { opacity: 0.6; }
-}
 
 /* ── Base ── */
 
@@ -101,7 +90,6 @@ body {
     rgba(255, 184, 108, 0.15) 75%,
     rgba(0, 255, 65, 0.35) 100%
   );
-  animation: borderGlowPulse 4s ease-in-out infinite;
 }
 
 /* Soft diffuse glow sitting behind the window */
@@ -118,7 +106,6 @@ body {
   );
   filter: blur(18px);
   z-index: -1;
-  animation: outerGlowPulse 4s ease-in-out infinite;
 }
 
 /* ── Blinking cursor ── */

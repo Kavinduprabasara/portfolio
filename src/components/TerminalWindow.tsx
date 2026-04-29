@@ -7,7 +7,7 @@ export default function TerminalWindow({ title, children }: TerminalWindowProps)
   return (
     <div
       className="min-h-screen flex flex-col items-center"
-      style={{ background: "var(--terminal-darker)", padding: "3rem 2rem" }}
+      style={{ background: "var(--terminal-darker)", padding: "1rem" }}
     >
       {/* Gradient glow border wrapper */}
       <div className="terminal-glow-wrapper w-full" style={{ maxWidth: "1400px" }}>
