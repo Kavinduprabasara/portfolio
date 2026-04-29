@@ -7,10 +7,10 @@ export default function TerminalWindow({ title, children }: TerminalWindowProps)
   return (
     <div
       className="min-h-screen flex flex-col items-center"
-      style={{ background: "var(--terminal-darker)", padding: "5rem 4rem" }}
+      style={{ background: "var(--terminal-darker)", padding: "3rem 2rem" }}
     >
       {/* Gradient glow border wrapper */}
-      <div className="terminal-glow-wrapper w-full" style={{ maxWidth: "1200px" }}>
+      <div className="terminal-glow-wrapper w-full" style={{ maxWidth: "1400px" }}>
         {/* Actual terminal window sits inside the 1px gradient border */}
         <div className="overflow-hidden rounded-[10px]" style={{ background: "var(--terminal-bg)" }}>
 
@@ -38,7 +38,7 @@ export default function TerminalWindow({ title, children }: TerminalWindowProps)
 
           {/* Terminal body */}
           <div
-            className="scan-lines px-8 py-8 md:px-16 md:py-12"
+            className="scan-lines px-10 py-10 md:px-20 md:py-16"
             style={{ background: "var(--terminal-bg)" }}
           >
             <div className="relative z-[2]">{children}</div>
